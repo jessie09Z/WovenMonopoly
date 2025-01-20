@@ -1,0 +1,9 @@
+D:\Repos\WovenMonopoly\WovenMonopoly\bin\Debug\WovenMonopoly.exe
+D:\Repos\WovenMonopoly\WovenMonopoly\bin\Debug\WovenMonopoly.pdb
+D:\Repos\WovenMonopoly\WovenMonopoly\bin\Debug\Newtonsoft.Json.dll
+D:\Repos\WovenMonopoly\WovenMonopoly\bin\Debug\Newtonsoft.Json.xml
+D:\Repos\WovenMonopoly\WovenMonopoly\obj\Debug\WovenMonopoly.csproj.AssemblyReference.cache
+D:\Repos\WovenMonopoly\WovenMonopoly\obj\Debug\WovenMonopoly.csproj.CoreCompileInputs.cache
+D:\Repos\WovenMonopoly\WovenMonopoly\obj\Debug\WovenMon.ED9D598F.Up2Date
+D:\Repos\WovenMonopoly\WovenMonopoly\obj\Debug\WovenMonopoly.exe
+D:\Repos\WovenMonopoly\WovenMonopoly\obj\Debug\WovenMonopoly.pdb
