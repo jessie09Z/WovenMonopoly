@@ -37,7 +37,7 @@ namespace WovenMonopoly
             return JsonConvert.DeserializeObject<List<int>>(File.ReadAllText(fileName));
         }
 
-        public void PlayGame()
+        public void PlayGame(string rolls)
         {
             while (Rolls.Count > 0)
             {
@@ -54,15 +54,15 @@ namespace WovenMonopoly
 
                 if (currentPlayer.Money <= 0)
                 {
-                    Console.WriteLine($"{currentPlayer.Name} is bankrupt!");
-                    DecideWinner();
+                    Console.WriteLine($"In {rolls}: {currentPlayer.Name} is bankrupt!");
+                    DecideWinner(rolls);
                     return; // End game when a player goes bankrupt
                 }
 
                 Players.Enqueue(currentPlayer);
             }
 
-            DecideWinner();
+            DecideWinner(rolls);
         }
 
         public void HandleProperty(Player player, BoardSpace space)
@@ -89,7 +89,7 @@ namespace WovenMonopoly
             }
         }
 
-        private void DecideWinner()
+        private void DecideWinner(string rolls)
         {
             Player winner = null;
             var maxMoney = 0;
@@ -100,14 +100,14 @@ namespace WovenMonopoly
                 winner = player;
             }
 
-            if (winner != null) Console.WriteLine($"The winner is {winner.Name} with ${winner.Money} left!");
+            if (winner != null) Console.WriteLine($"In {rolls}: The winner is {winner.Name} with ${winner.Money} left!");
         }
 
-        public void PrintFinalResults()
+        public void PrintFinalResults(string rolls)
         {
             foreach (var player in Players)
             {
-                Console.WriteLine($"{player.Name} has ${player.Money} and is on position {player.Position}");
+                Console.WriteLine($"In {rolls}: {player.Name} has ${player.Money} and is on position {player.Position}");
             }
         }
     }
