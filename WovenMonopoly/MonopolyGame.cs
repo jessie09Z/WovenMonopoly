@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace WovenMonopoly
 {
     class MonopolyGame
     {
-        private List<BoardSpace> Board { get; }
-        private Queue<int> Rolls { get; }
+        public List<BoardSpace> Board { get; }
+        public Queue<int> Rolls { get; }
         private Queue<Player> Players { get; }
-        private Dictionary<string, Player> PropertyOwners { get; } = new Dictionary<string, Player>();
+        public Dictionary<string, Player> PropertyOwners { get; } = new Dictionary<string, Player>();
+        private const string Property = "property";
 
         public MonopolyGame(string boardFile, string rollsFile)
         {
@@ -40,12 +42,12 @@ namespace WovenMonopoly
             while (Rolls.Count > 0)
             {
                 var currentPlayer = Players.Dequeue();
-                int roll = Rolls.Dequeue();
+                var roll = Rolls.Dequeue();
                 currentPlayer.Move(roll, Board);
 
                 var landedSpace = Board[currentPlayer.Position];
 
-                if (landedSpace.Type == "property")
+                if (landedSpace.Type == Property)
                 {
                     HandleProperty(currentPlayer, landedSpace);
                 }
@@ -53,18 +55,19 @@ namespace WovenMonopoly
                 if (currentPlayer.Money <= 0)
                 {
                     Console.WriteLine($"{currentPlayer.Name} is bankrupt!");
+                    DecideWinner();
                     return; // End game when a player goes bankrupt
                 }
 
                 Players.Enqueue(currentPlayer);
             }
 
-            DeclareWinner();
+            DecideWinner();
         }
 
-        private void HandleProperty(Player player, BoardSpace space)
+        public void HandleProperty(Player player, BoardSpace space)
         {
-            if (!PropertyOwners.ContainsKey(space.Name))
+            if (!PropertyOwners.TryGetValue(space.Name, out var owner))
             {
                 // Buy property
                 player.Money -= space.Price;
@@ -73,47 +76,34 @@ namespace WovenMonopoly
             }
             else
             {
-                Player owner = PropertyOwners[space.Name];
-                if (owner != player)
+                if (owner == player) return;
+                var rent = space.Price;
+                var ownedCount = Board.Count(prop => prop.Colour == space.Colour && owner.OwnedProperties.Contains(prop.Name));
+
+                if (ownedCount == Board.FindAll(p => p.Colour == space.Colour).Count)
                 {
-                    int rent = space.Price;
-                    int ownedCount = 0;
-                    foreach (var prop in Board)
-                    {
-                        if (prop.Colour == space.Colour && owner.OwnedProperties.Contains(prop.Name))
-                        {
-                            ownedCount++;
-                        }
-                    }
-
-                    if (ownedCount == Board.FindAll(p => p.Colour == space.Colour).Count)
-                    {
-                        rent *= 2; // Double rent if the owner has all of the same colour properties
-                    }
-
-                    player.PayRent(owner, rent);
+                    rent *= 2; // Double rent if the owner has all of the same colour properties
                 }
+
+                player.PayRent(owner, rent);
             }
         }
 
-        private void DeclareWinner()
+        private void DecideWinner()
         {
             Player winner = null;
-            int maxMoney = 0;
+            var maxMoney = 0;
 
-            foreach (var player in Players)
+            foreach (var player in Players.Where(player => player.Money > maxMoney))
             {
-                if (player.Money > maxMoney)
-                {
-                    maxMoney = player.Money;
-                    winner = player;
-                }
+                maxMoney = player.Money;
+                winner = player;
             }
 
-            Console.WriteLine($"The winner is {winner.Name} with ${winner.Money} left!");
+            if (winner != null) Console.WriteLine($"The winner is {winner.Name} with ${winner.Money} left!");
         }
 
-        public void PrintFinalStandings()
+        public void PrintFinalResults()
         {
             foreach (var player in Players)
             {
