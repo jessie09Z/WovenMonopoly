@@ -7,13 +7,13 @@ namespace WovenMonopoly
     {
         public static void Main(string[] args)
         {
-            string board = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty,
+            var board = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty,
                 @"Data\board.json");
-            string rolls = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty,
-                @"Data\rolls_2.json");
+            var rolls = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty,
+                @"Data\rolls_1.json");
             var game = new MonopolyGame(board, rolls);
             game.PlayGame();
-            game.PrintFinalStandings();
+            game.PrintFinalResults();
         }
     }
 }
