@@ -1,0 +1,15 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AAssembly_002Ecs_002Fl_003AC_0021_003FUsers_003Fliumi_003FAppData_003FRoaming_003FJetBrains_003FRider2024_002E3_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F01d576ddfadc45249d5a23906072500246e000_003Fc3_003F48de7ba9_003FAssembly_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9691d35c_002D69a2_002D4ce9_002Da7e3_002D94039cd22a21/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="BoardSpace_ShouldInitializeCorrectly" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::BC72499D-62BC-4BDE-87DC-FB0070A8A138::.NETFramework,Version=v3.5::WovenMonopoly.UnitTests.BoardSpace_ShouldInitializeCorrectly&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::BC72499D-62BC-4BDE-87DC-FB0070A8A138::.NETFramework,Version=v3.5::WovenMonopoly.UnitTests.Player_ShouldMoveCorrectly&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::BC72499D-62BC-4BDE-87DC-FB0070A8A138::.NETFramework,Version=v3.5::WovenMonopoly.UnitTests.Player_ShouldHandlePassingGo&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::BC72499D-62BC-4BDE-87DC-FB0070A8A138::.NETFramework,Version=v3.5::WovenMonopoly.UnitTests.Each_Player_Starts_With_16&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::BC72499D-62BC-4BDE-87DC-FB0070A8A138::.NETFramework,Version=v3.5::WovenMonopoly.UnitTests.Player_Should_Handle_Passing_Go_when_first_passing_without_money_but_next_round_with_money&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::BC72499D-62BC-4BDE-87DC-FB0070A8A138::.NETFramework,Version=v3.5::WovenMonopoly.UnitTests.Player_Should_Pay_Rent&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::BC72499D-62BC-4BDE-87DC-FB0070A8A138::.NETFramework,Version=v3.5::WovenMonopoly.UnitTests.Player_Should_Buy_Property_When_Land&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::BC72499D-62BC-4BDE-87DC-FB0070A8A138::.NETFramework,Version=v3.5::WovenMonopoly.UnitTests.Player_Must_Pay_Rent_to_Owner&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::BC72499D-62BC-4BDE-87DC-FB0070A8A138::.NETFramework,Version=v3.5::WovenMonopoly.UnitTests.Player_Must_Pay_Rent_to_Owner_If_Same_Color_Double_Paid&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

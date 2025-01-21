@@ -7,3 +7,5 @@ D:\Repos\WovenMonopoly\WovenMonopoly\obj\Debug\WovenMonopoly.csproj.CoreCompileI
 D:\Repos\WovenMonopoly\WovenMonopoly\obj\Debug\WovenMon.ED9D598F.Up2Date
 D:\Repos\WovenMonopoly\WovenMonopoly\obj\Debug\WovenMonopoly.exe
 D:\Repos\WovenMonopoly\WovenMonopoly\obj\Debug\WovenMonopoly.pdb
+D:\Repos\WovenMonopoly\WovenMonopoly\bin\Debug\nunit.framework.dll
+D:\Repos\WovenMonopoly\WovenMonopoly\bin\Debug\nunit.framework.xml
