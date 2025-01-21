@@ -2,7 +2,7 @@
 
 
 ## 📖 Overview
-**Woven Monopoly** is a console application. In Woven Monopoly, when the dice rolls are set ahead of time, the game is deterministic. You can run Program to see the test outcome for **rolls_1.json** and **rolls_2.json** seperately
+**Woven Monopoly** is a console-based implementation of a Monopoly-style board game. It includes core features such as player management, property transactions, and turn-based gameplay. In Woven Monopoly, when the dice rolls are set ahead of time, the game is deterministic. You can run Program to see the test outcome for **rolls_1.json** and **rolls_2.json** seperately
 
 
 ## 📦 Installation and Running
@@ -36,4 +36,70 @@
     In rolls 2: Billy has $20 and is on position 2
     In rolls 2: Charlotte has $30 and is on position 0
 
+
+---
+
+## Application Design Overview
+
+### 1. Program Entry (`Program.cs`)
+- **Purpose:**  
+  The entry point of the application, responsible for initializing and running the game.
+- **Key Functions:**
+  - Initializes the game board and players.
+  - Starts the main game loop.
+
+---
+
+### 2. Game Logic (`MonopolyGame.cs`)
+- **Purpose:**  
+  This class orchestrates the overall game flow, managing turns, player actions, and board interactions.
+- **Key Responsibilities:**
+  - Handling player turns (rolling dice, moving).
+  - Managing transactions such as buying properties and paying rent.
+  - Implementing game rules such as passing "Go" and collecting salary.
+
+---
+
+### 3. Player Management (`Player.cs`)
+- **Purpose:**  
+  Represents individual players in the game.
+- **Attributes:**
+  - `Name` – Player's name.
+  - `Money` – Tracks the player's current balance.
+  - `Position` – Current position on the board.
+  - `PropertiesOwned` – List of owned properties.
+- **Main Methods:**
+  - `Move(int steps)` – Moves the player around the board.
+  - `BuyProperty(BoardSpace property)` – Handles property purchases.
+  - `PayRent(int amount)` – Deducts rent from the player's balance.
+
+---
+
+### 4. Board Spaces (`BoardSpace.cs`)
+- **Purpose:**  
+  Represents spaces on the game board, such as properties, chance spaces, and special locations.
+- **Attributes:**
+  - `Name` – Name of the space.
+  - `Type` – Property type
+  - `Price` – Purchase cost (for properties) or Rent value (if applicable).
+  - `Color` – Color of a property.
+
+---
+
+### 5. Unit Tests (`UnitTests.cs`)
+- **Purpose:**  
+  Contains test cases to validate core functionalities and game rules.
+- **Key Areas Tested:**
+  - Player movement and property purchase.
+  - Rent/Buying payment mechanics.
+  - Special spaces handling.
+
+---
+
+## Suggestions for Design Improvement (time limited, so skip the implementation)
+
+### 1. Design Enhancements
+- **Use Dependency Injection:**  
+  - Introduce dependency injection with Autofac IoC pattern to decouple components, making the game more testable and maintainable.
+Example: Inject BoardSpace, Player, and MonopolyGame services instead of directly instantiating them within the game class.
 
